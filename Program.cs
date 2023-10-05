@@ -9,7 +9,8 @@
             Console.WriteLine("Escolha um exemplo para visualizar:");
             Console.WriteLine("1. Vetor");
             Console.WriteLine("2. Matriz");
-            Console.WriteLine("3. Sair");
+            Console.WriteLine("3. Cubo");
+            Console.WriteLine("4. Sair");
             Console.Write("Opção: ");
 
             try
@@ -27,6 +28,10 @@
                         Pause();
                         break;
                     case 3:
+                        ShowCubeExample();
+                        Pause();
+                        break;
+                    case 4:
                         return;
                     default:
                         Console.WriteLine("Opção inválida. Pressione Enter para tentar novamente.");
@@ -71,10 +76,34 @@
         }
     }
 
+    static void ShowCubeExample()
+    {
+        Console.Clear();
+        int[,,] cubo = new int[2, 2, 2]
+        {
+                { { 1, 2 }, { 3, 4 } },
+                { { 5, 6 }, { 7, 8 } }
+        };
+
+        Console.WriteLine("Exemplo de Cubo:");
+        for (int i = 0; i < 2; i++)
+        {
+            Console.WriteLine($"Matriz {i + 1}:");
+            for (int j = 0; j < 2; j++)
+            {
+                for (int k = 0; k < 2; k++)
+                {
+                    Console.Write(cubo[i, j, k] + "\t");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+        }
+    }
+
     static void Pause()
     {
         Console.WriteLine("\nPressione Enter para continuar.");
         Console.ReadLine();
     }
 }
-
